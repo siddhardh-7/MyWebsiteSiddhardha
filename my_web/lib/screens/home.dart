@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:my_web/components/gradient_test.dart';
+import 'about.dart';
+import 'projects.dart';
+import 'package:my_web/constants.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  static String id = "homePage";
 
+  const Home({Key? key}) : super(key: key);
   @override
   State<Home> createState() => _HomeState();
 }
@@ -10,6 +17,267 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      if (constraints.maxWidth > 800) {
+        return const DeskTopHome();
+      } else {
+        return const MobileHome();
+      }
+    });
+  }
+}
+
+class DeskTopHome extends StatefulWidget {
+  const DeskTopHome({Key? key}) : super(key: key);
+
+  @override
+  State<DeskTopHome> createState() => _DeskTopHomeState();
+}
+
+class _DeskTopHomeState extends State<DeskTopHome> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: const Color(0xFF010305),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              alignment: Alignment.centerRight,
+              child: const Image(
+                image: AssetImage("assets/images/profile1.jpg"),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      child: const Text(
+                        "S",
+                        style: TextStyle(
+                          fontSize: 50.0,
+                          fontFamily: "Anurati",
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, About.id);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Text(
+                              "ABOUT ME",
+                              style: TextStyle(
+                                color: kTextColor,
+                                fontSize: 22.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, Projects.id);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Text(
+                              "PROJECTS",
+                              style: TextStyle(
+                                color: kTextColor,
+                                fontSize: 22.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Text(
+                              "CONTACT",
+                              style: TextStyle(
+                                color: kTextColor,
+                                fontSize: 22.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 40.0,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(18.0),
+                        child: IconButton(
+                          onPressed: () {},
+                          splashColor: Colors.white,
+                          icon: const Icon(
+                            Icons.arrow_upward_rounded,
+                            color: kTextColor,
+                          ),
+                          hoverColor: kTextColor,
+
+                          // icon: Image.asset(
+                          //   "assets/images/UpArrow.png",
+                          // ),
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(18.0),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, About.id);
+                          },
+                          splashColor: Colors.white,
+                          icon: const Icon(
+                            Icons.arrow_downward_rounded,
+                            color: kTextColor,
+                          ),
+                          hoverColor: kTextColor,
+
+                          // icon: Image.asset(
+                          //   "assets/images/UpArrow.png",
+                          // ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 30.0,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: const FittedBox(
+                      child: Text(
+                        "S",
+                        style: TextStyle(
+                          fontSize: 150.0,
+                          fontFamily: "Anurati",
+                        ),
+                      ),
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const SizedBox(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const <Widget>[
+                          Text(
+                            "HI , IT'S",
+                            style: TextStyle(
+                              color: kTextColor,
+                              fontSize: 69.0,
+                            ),
+                          ),
+                          GradientText(
+                            "SIDDHARDHA",
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromRGBO(57, 206, 192, 0.0),
+                                Color.fromRGBO(57, 206, 192, 18.0),
+                                Color.fromRGBO(57, 206, 192, 100.0),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ),
+                            style: TextStyle(
+                              color: kTextColor,
+                              fontFamily: "Coda",
+                              fontSize: 92.0,
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    const Text(
+                      "Contact : ",
+                    ),
+                    const SizedBox(
+                      width: 18.0,
+                    ),
+                    InkWell(
+                      child:
+                          SvgPicture.asset("assets/images/logo-instagram.svg"),
+                      onTap: () =>
+                          launch('https://www.instagram.com/_its_siddhardh_/'),
+                    ),
+                    const SizedBox(
+                      width: 18.0,
+                    ),
+                    InkWell(
+                      child: SvgPicture.asset("assets/images/logo-github.svg"),
+                      onTap: () => launch('https://github.com/siddhardh-7'),
+                    ),
+                    const SizedBox(
+                      width: 18.0,
+                    ),
+                    InkWell(
+                      child: SvgPicture.asset("assets/images/logo-google.svg"),
+                      onTap: () => launch(
+                          'https://www.linkedin.com/in/siddhardha-darsi-078694223/'),
+                    ),
+                    SizedBox(),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MobileHome extends StatefulWidget {
+  const MobileHome({Key? key}) : super(key: key);
+
+  @override
+  State<MobileHome> createState() => _MobileHomeState();
+}
+
+class _MobileHomeState extends State<MobileHome> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

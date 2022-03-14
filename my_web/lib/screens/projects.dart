@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Projects extends StatefulWidget {
-  const Projects({Key? key}) : super(key: key);
+  static String id = "projectsPage";
 
   @override
   State<Projects> createState() => _ProjectsState();
