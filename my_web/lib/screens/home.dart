@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_web/components/gradient_test.dart';
+import '../components/arrow_nav.dart';
+import '../components/nav_bar.dart';
 import 'about.dart';
-import 'projects.dart';
-import 'package:my_web/constants.dart';
+import '../constants.dart';
 
 class Home extends StatefulWidget {
   static String id = "homePage";
@@ -19,7 +20,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      if (constraints.maxWidth > 800) {
+      if (constraints.maxWidth >= 900) {
         return const DeskTopHome();
       } else {
         return const MobileHome();
@@ -49,78 +50,11 @@ class _DeskTopHomeState extends State<DeskTopHome> {
                 image: AssetImage("assets/images/profile1.jpg"),
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.topLeft,
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      child: const Text(
-                        "S",
-                        style: TextStyle(
-                          fontSize: 50.0,
-                          fontFamily: "Anurati",
-                        ),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, About.id);
-                          },
-                          child: const Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Text(
-                              "ABOUT ME",
-                              style: TextStyle(
-                                color: kTextColor,
-                                fontSize: 22.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, Projects.id);
-                          },
-                          child: const Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Text(
-                              "PROJECTS",
-                              style: TextStyle(
-                                color: kTextColor,
-                                fontSize: 22.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: const Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Text(
-                              "CONTACT",
-                              style: TextStyle(
-                                color: kTextColor,
-                                fontSize: 22.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 40.0,
-                    ),
-                  ],
-                ),
+                padding: EdgeInsets.all(12.0),
+                child: NavBar(),
               ),
             ),
             Align(
@@ -129,44 +63,9 @@ class _DeskTopHomeState extends State<DeskTopHome> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(18.0),
-                        child: IconButton(
-                          onPressed: () {},
-                          splashColor: Colors.white,
-                          icon: const Icon(
-                            Icons.arrow_upward_rounded,
-                            color: kTextColor,
-                          ),
-                          hoverColor: kTextColor,
-
-                          // icon: Image.asset(
-                          //   "assets/images/UpArrow.png",
-                          // ),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(18.0),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, About.id);
-                          },
-                          splashColor: Colors.white,
-                          icon: const Icon(
-                            Icons.arrow_downward_rounded,
-                            color: kTextColor,
-                          ),
-                          hoverColor: kTextColor,
-
-                          // icon: Image.asset(
-                          //   "assets/images/UpArrow.png",
-                          // ),
-                        ),
-                      ),
-                    ],
+                  ArrowNav(
+                    upArrowString: '',
+                    downArrowString: About.id,
                   ),
                   const SizedBox(
                     width: 30.0,
@@ -278,6 +177,13 @@ class MobileHome extends StatefulWidget {
 class _MobileHomeState extends State<MobileHome> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[],
+        ),
+      ),
+    );
   }
 }

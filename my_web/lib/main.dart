@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_web/screens/about.dart';
 import 'package:my_web/screens/projects.dart';
+import 'package:my_web/screens/contacts.dart';
 import 'screens/home.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         Home.id: (context) => Home(),
         About.id: (context) => About(),
         Projects.id: (context) => Projects(),
+        Contacts.id: (context) => Contacts(),
       },
       theme: ThemeData(
         // Define the default brightness and colors.
