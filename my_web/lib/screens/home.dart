@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:my_web/components/side_bar_menu.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_web/components/gradient_test.dart';
 import '../components/arrow_nav.dart';
@@ -151,11 +152,12 @@ class _DeskTopHomeState extends State<DeskTopHome> {
                       width: 18.0,
                     ),
                     InkWell(
-                      child: SvgPicture.asset("assets/images/logo-google.svg"),
+                      child:
+                          SvgPicture.asset("assets/images/logo-linkedin.svg"),
                       onTap: () => launch(
                           'https://www.linkedin.com/in/siddhardha-darsi-078694223/'),
                     ),
-                    SizedBox(),
+                    const SizedBox(),
                   ],
                 ),
               ),
@@ -178,10 +180,86 @@ class _MobileHomeState extends State<MobileHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: SideBarMenu(),
+      appBar: AppBar(
+        backgroundColor: kBackgroundColor,
+        leading: const Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Text(
+            "S",
+            style: TextStyle(
+              fontSize: 27.0,
+              fontFamily: "Anurati",
+            ),
+          ),
+        ),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.menu_rounded),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[],
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.all(30.0),
+                width: 240.0,
+                height: 240 / 0.65217391304,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(30.0),
+                  ),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/images/profile1.jpg"),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const <Widget>[
+                    Text(
+                      "HI , IT'S",
+                      style: TextStyle(
+                        color: kTextColor,
+                        fontSize: 30.0,
+                      ),
+                    ),
+                    SizedBox(),
+                    GradientText(
+                      "SIDDHARDHA",
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromRGBO(57, 206, 192, 0.0),
+                          Color.fromRGBO(57, 206, 192, 18.0),
+                          Color.fromRGBO(57, 206, 192, 100.0),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      style: TextStyle(
+                        color: kTextColor,
+                        fontFamily: "Coda",
+                        fontSize: 58.0,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox()
+            ],
+          ),
         ),
       ),
     );
