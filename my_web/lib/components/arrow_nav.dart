@@ -12,6 +12,7 @@ class ArrowNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         UpArrowIcon(
           navString: upArrowString,
@@ -37,12 +38,11 @@ class UpArrowIcon extends StatelessWidget {
         onPressed: () {
           Navigator.pushNamed(context, navString);
         },
-        splashColor: Colors.white,
         icon: const Icon(
           Icons.arrow_upward_rounded,
           color: kTextColor,
         ),
-        hoverColor: kTextColor,
+        hoverColor: Colors.white,
 
         // icon: Image.asset(
         //   "assets/images/UpArrow.png",
@@ -65,12 +65,11 @@ class DownArrowIcon extends StatelessWidget {
         onPressed: () {
           Navigator.pushNamed(context, navString);
         },
-        splashColor: Colors.white,
         icon: const Icon(
           Icons.arrow_downward_rounded,
           color: kTextColor,
         ),
-        hoverColor: kTextColor,
+        hoverColor: Colors.white,
 
         // icon: Image.asset(
         //   "assets/images/UpArrow.png",

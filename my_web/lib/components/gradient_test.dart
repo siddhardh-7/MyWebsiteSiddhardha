@@ -1,6 +1,33 @@
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
+class LinearTextGradient extends StatelessWidget {
+  const LinearTextGradient({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return GradientText(
+      title,
+      gradient: const LinearGradient(
+        colors: [
+          Color.fromRGBO(57, 206, 192, 100.0),
+          Color.fromRGBO(57, 206, 192, 18.0),
+          Color.fromRGBO(57, 206, 192, 0.0),
+        ],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+      ),
+      style: const TextStyle(
+        color: kTextColor,
+        fontFamily: "Coda",
+        fontSize: 69.0,
+      ),
+    );
+  }
+}
+
 class GradientText extends StatelessWidget {
   const GradientText(
     this.text, {

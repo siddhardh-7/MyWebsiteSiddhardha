@@ -4,6 +4,7 @@ import 'package:my_web/components/side_bar_menu.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_web/components/gradient_test.dart';
 import '../components/arrow_nav.dart';
+import '../components/mobile_app_bar.dart';
 import '../components/nav_bar.dart';
 import 'about.dart';
 import '../constants.dart';
@@ -53,10 +54,7 @@ class _DeskTopHomeState extends State<DeskTopHome> {
             ),
             const Align(
               alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.all(12.0),
-                child: NavBar(),
-              ),
+              child: NavBar(),
             ),
             Align(
               alignment: Alignment.centerLeft,
@@ -113,7 +111,7 @@ class _DeskTopHomeState extends State<DeskTopHome> {
                               fontFamily: "Coda",
                               fontSize: 92.0,
                             ),
-                          )
+                          ),
                         ],
                       ),
                       const SizedBox(),
@@ -181,28 +179,7 @@ class _MobileHomeState extends State<MobileHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: SideBarMenu(),
-      appBar: AppBar(
-        backgroundColor: kBackgroundColor,
-        leading: const Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Text(
-            "S",
-            style: TextStyle(
-              fontSize: 27.0,
-              fontFamily: "Anurati",
-            ),
-          ),
-        ),
-        actions: [
-          Builder(
-            builder: (context) => IconButton(
-              icon: Icon(Icons.menu_rounded),
-              onPressed: () => Scaffold.of(context).openEndDrawer(),
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            ),
-          ),
-        ],
-      ),
+      appBar: MobileAppBar(),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
