@@ -49,7 +49,7 @@ class _DeskTopHomeState extends State<DeskTopHome> {
             Container(
               alignment: Alignment.centerRight,
               child: const Image(
-                image: AssetImage("assets/images/profile1.jpg"),
+                image: AssetImage("assets/images/profile2.jpg"),
               ),
             ),
             const Align(
@@ -196,7 +196,7 @@ class _MobileHomeState extends State<MobileHome> {
                   ),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage("assets/images/profile1.jpg"),
+                    image: AssetImage("assets/images/profile2.jpg"),
                   ),
                 ),
               ),

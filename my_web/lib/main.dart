@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_web/constants.dart';
 import 'package:my_web/screens/about.dart';
 import 'package:my_web/screens/projects.dart';
 import 'package:my_web/screens/contacts.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         scaffoldBackgroundColor: const Color(0xFF010305),
         fontFamily: 'Coda',
+        hoverColor: Colors.white,
       ),
       home: MyHome(),
     );
