@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_web/components/nav_bar.dart';
 import '../constants.dart';
 
 AppBar MobileAppBar() {

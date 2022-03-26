@@ -14,7 +14,7 @@ class SideBarMenu extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(),
+            decoration: const BoxDecoration(),
             child: CircleAvatar(
               child: ClipOval(
                 child: Image.asset(
@@ -27,7 +27,7 @@ class SideBarMenu extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'ABOUT ME',
               style: TextStyle(
                 color: kTextColor,
@@ -36,7 +36,7 @@ class SideBarMenu extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, About.id),
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'PROJECTS',
               style: TextStyle(
                 color: kTextColor,
@@ -45,7 +45,7 @@ class SideBarMenu extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, Projects.id),
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'CONTACTS',
               style: TextStyle(
                 color: kTextColor,
@@ -54,7 +54,7 @@ class SideBarMenu extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, Contacts.id),
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'Back',
               style: TextStyle(
                 color: kTextColor,
