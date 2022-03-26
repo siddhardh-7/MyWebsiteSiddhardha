@@ -24,7 +24,7 @@ Future sendEMail() async {
   final response = await http.post(
     url,
     headers: {'Content-Type': 'application/json'},
-    body: json.encoder({
+    body: json.encode({
       "service_id": serviceId,
       "template_id": templateId,
       "user_id": userId,
