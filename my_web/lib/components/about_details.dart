@@ -4,7 +4,7 @@ import 'education_details.dart';
 import 'gradient_test.dart';
 
 class AboutDetails extends StatelessWidget {
-  AboutDetails({required this.value});
+  const AboutDetails({required this.value});
 
   final double value;
 

@@ -13,6 +13,8 @@ import 'home.dart';
 class About extends StatefulWidget {
   static String id = "aboutPage";
 
+  About({Key? key}) : super(key: key);
+
   @override
   State<About> createState() => _AboutState();
 }
@@ -64,7 +66,7 @@ class _DeskTopAboutState extends State<DeskTopAbout> {
                     "assets/images/profile1.jpg",
                   ),
                 ),
-                AboutDetails(
+                const AboutDetails(
                   value: 0.5,
                 ),
                 const SizedBox(
@@ -90,7 +92,7 @@ class _MobileAboutState extends State<MobileAbout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: SideBarMenu(),
+      endDrawer: const SideBarMenu(),
       appBar: MobileAppBar(),
       body: SingleChildScrollView(
         child: Padding(
@@ -111,7 +113,7 @@ class _MobileAboutState extends State<MobileAbout> {
               const SizedBox(
                 height: 50.0,
               ),
-              AboutDetails(
+              const AboutDetails(
                 value: 0.8,
               ),
             ],

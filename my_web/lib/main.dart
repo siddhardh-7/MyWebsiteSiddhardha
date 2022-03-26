@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_web/constants.dart';
 import 'package:my_web/screens/about.dart';
 import 'package:my_web/screens/projects.dart';
 import 'package:my_web/screens/contacts.dart';
@@ -17,9 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: Home.id,
       routes: {
-        Home.id: (context) => Home(),
+        Home.id: (context) => const Home(),
         About.id: (context) => About(),
-        Projects.id: (context) => Projects(),
+        Projects.id: (context) => const Projects(),
         Contacts.id: (context) => Contacts(),
       },
       theme: ThemeData(
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Coda',
         hoverColor: Colors.white,
       ),
-      home: MyHome(),
+      home: const MyHome(),
     );
   }
 }
@@ -44,6 +43,6 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
-    return Home();
+    return const Home();
   }
 }

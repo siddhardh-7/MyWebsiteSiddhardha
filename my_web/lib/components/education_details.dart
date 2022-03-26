@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class EducationBox extends StatelessWidget {
-  EducationBox(
+  const EducationBox(
       {required this.education,
       required this.completedYear,
       required this.educationArea,

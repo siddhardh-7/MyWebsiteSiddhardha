@@ -5,6 +5,8 @@ import 'package:my_web/screens/contacts.dart';
 import 'package:my_web/screens/projects.dart';
 
 class SideBarMenu extends StatelessWidget {
+  const SideBarMenu({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
