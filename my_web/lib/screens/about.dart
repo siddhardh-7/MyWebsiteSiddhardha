@@ -62,8 +62,11 @@ class _DeskTopAboutState extends State<DeskTopAbout> {
                     borderRadius: BorderRadius.circular(20.0),
                     color: kBackgroundColor,
                   ),
-                  child: Image.asset(
-                    "assets/images/profile1.jpg",
+                  child: Hero(
+                    tag: "profile",
+                    child: Image.asset(
+                      "assets/images/profile1.jpg",
+                    ),
                   ),
                 ),
                 const AboutDetails(
@@ -100,13 +103,16 @@ class _MobileAboutState extends State<MobileAbout> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                width: MediaQuery.of(context).size.width * 0.6,
-                color: kBackgroundColor,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image.asset(
-                    "assets/images/profile1.jpg",
+              Hero(
+                tag: "profile",
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  color: kBackgroundColor,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: Image.asset(
+                      "assets/images/profile1.jpg",
+                    ),
                   ),
                 ),
               ),

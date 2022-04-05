@@ -48,8 +48,11 @@ class _DeskTopHomeState extends State<DeskTopHome> {
           children: <Widget>[
             Container(
               alignment: Alignment.centerRight,
-              child: const Image(
-                image: AssetImage("assets/images/profile2.jpg"),
+              child: const Hero(
+                tag: "profile",
+                child: Image(
+                  image: AssetImage("assets/images/profile1.jpg"),
+                ),
               ),
             ),
             const Align(
@@ -186,17 +189,20 @@ class _MobileHomeState extends State<MobileHome> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Container(
-                margin: const EdgeInsets.all(30.0),
-                width: 240.0,
-                height: 240 / 0.65217391304,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.0),
-                  ),
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/images/profile2.jpg"),
+              Hero(
+                tag: "profile",
+                child: Container(
+                  margin: const EdgeInsets.all(30.0),
+                  width: 240.0,
+                  height: 240 / 0.65217391304,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30.0),
+                    ),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/images/profile2.jpg"),
+                    ),
                   ),
                 ),
               ),
